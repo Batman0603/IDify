@@ -1,0 +1,96 @@
+backend/
+│
+├── firebase-functions/                 # Serverless backend (main API)
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── index.ts                    # Entry point
+│   │   │
+│   │   ├── config/
+│   │   │   ├── firebase.ts
+│   │   │   ├── env.ts
+│   │   │   └── blockchain.ts
+│   │   │
+│   │   ├── auth/
+│   │   │   └── setUserRole.ts
+│   │   │
+│   │   ├── credential/
+│   │   │   ├── issueCredential.ts
+│   │   │   ├── revokeCredential.ts
+│   │   │   ├── getCredential.ts
+│   │   │   └── credentialSchema.ts
+│   │   │
+│   │   ├── verification/
+│   │   │   ├── createVerificationSession.ts
+│   │   │   ├── verifyProof.ts
+│   │   │   ├── validateNonce.ts
+│   │   │   └── updateSessionStatus.ts
+│   │   │
+│   │   ├── blockchain/
+│   │   │   ├── didRegistry.ts
+│   │   │   ├── universityRegistry.ts
+│   │   │   ├── revocationRegistry.ts
+│   │   │   └── contractClient.ts
+│   │   │
+│   │   └── utils/
+│   │       ├── logger.ts
+│   │       ├── errors.ts
+│   │       └── cryptoHelpers.ts
+│   │
+│   ├── package.json
+│   └── tsconfig.json
+│
+│
+├── amd-prover-service/                 ⭐ AMD GPU Service (ROCm)
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── api/
+│   │   │   ├── server.py               # FastAPI server
+│   │   │   └── routes.py
+│   │   │
+│   │   ├── zk/
+│   │   │   ├── circuits/
+│   │   │   │   └── enrollment_status.cl
+│   │   │   │
+│   │   │   ├── proof_generator.py
+│   │   │   ├── witness_generator.py
+│   │   │   └── verifier.py
+│   │   │
+│   │   ├── gpu/
+│   │   │   ├── rocm_config.py          # ROCm initialization
+│   │   │   ├── kernel_loader.py
+│   │   │   └── memory_manager.py
+│   │   │
+│   │   └── utils/
+│   │       ├── hashing.py
+│   │       └── serialization.py
+│   │
+│   ├── requirements.txt
+│   ├── Dockerfile                      # ROCm-enabled container
+│   └── README.md
+│
+│
+├── contracts/                          # Smart Contracts (Solidity)
+│   ├── DIDRegistry.sol
+│   ├── UniversityRegistry.sol
+│   ├── RevocationRegistry.sol
+│   ├── SchemaRegistry.sol
+│   ├── deploy.ts
+│   └── hardhat.config.ts
+│
+│
+├── shared/                             # Backend shared logic
+│   ├── types/
+│   │   ├── credential.ts
+│   │   ├── verification.ts
+│   │   └── blockchain.ts
+│   │
+│   └── constants.ts
+│
+│
+├── firebase.json
+├── firestore.rules
+├── firestore.indexes.json
+├── .env
+└── README.md
