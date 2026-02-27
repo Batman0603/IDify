@@ -19,7 +19,7 @@ service cloud.firestore {
         && request.resource.data.universityId == request.auth.uid
         && request.resource.data.status == "active";
 
-      // Student can read their own credentials
+      // Student can read their own credentials; Merchants can read all
       allow read: if request.auth != null
         && (
             getUserRole() == "merchant"

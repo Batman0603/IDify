@@ -1,5 +1,9 @@
-import * as functions from "firebase-functions";
+import * as admin from "firebase-admin";
 
-export const healthCheck = functions.https.onRequest((req, res) => {
-  res.send("Backend is running 🚀");
-});
+admin.initializeApp();
+
+export { issueCredential } from "./credential/issueCredentials";
+export { verifyCredential } from "./credential/verifyCredential";
+export { revokeCredential } from "./credential/revokeCredentials";
+
+export { setUserRole } from "./auth/setUserRole";
